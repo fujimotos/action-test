@@ -1,0 +1,16 @@
+on: [push]
+name: Git commit test
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Commit and push
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github@clear-code.com"
+          txtfile=`date +%s`.txt
+          touch $txtfile
+          git add $txtfile
+          git commit -m "Add $txtfile"
+          git push origin master
