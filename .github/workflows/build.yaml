@@ -1,4 +1,8 @@
-on: [push]
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'docs/**'
 name: Git commit test
 jobs:
   build:
